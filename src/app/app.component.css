@@ -1,7 +1,10 @@
 canvas{
   /*float: right;*/
-}
 
+}
+#grid{
+  margin: -15px;
+}
 #sideBar{
   background-color: ;
 }
@@ -9,9 +12,14 @@ canvas{
 .col-md-2{
   background-color: grey;
   margin: 0;
+
 }
 
 .container {
   margin: 0 0 0 20px;
   padding: 0;
+}
+
+.palette{
+  font-size: 30px;
 }
