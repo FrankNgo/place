@@ -1,21 +1,32 @@
-<div class="wrapper">
-  <div class="colorMenu">
-    <div class="white"></div>
-    <div class="lightgrey"></div>
-    <div class="grey"></div>
-    <div class="black"></div>
-    <div class="pink"></div>
-    <div class="red"></div>
-    <div class="gold"></div>
-    <div class="brown"></div>
-    <div class="yellow"></div>
-    <div class="lightgreen"></div>
-    <div class="green"></div>
-    <div class="lightblue"></div>
-    <div class="blue"></div>
-    <div class="darkblue"></div>
-    <div class="lavender"></div>
-    <div class="purple"></div>
+
+<div class="container palette">
+  <div class="row">
+    <div class="col-md-2">
+      <div id="sideBar">
+        <div class="k">
+          <div class="colorMenu">
+            <div class="white"></div>
+            <div class="lightgrey"></div>
+            <div class="grey"></div>
+            <div class="black"></div>
+            <div class="pink"></div>
+            <div class="red"></div>
+            <div class="gold"></div>
+            <div class="brown"></div>
+            <div class="yellow"></div>
+            <div class="lightgreen"></div>
+            <div class="green"></div>
+            <div class="lightblue"></div>
+            <div class="blue"></div>
+            <div class="darkblue"></div>
+            <div class="lavender"></div>
+            <div class="purple"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-10">
+      <canvas id="grid" width="1605" height="1605" style="border:2px solid black"  (click)="storeGuess($event)"></canvas>
+    </div>
   </div>
 </div>
-<canvas id="grid" width="1605" height="1605" style="border:2px solid black" (click)="storeGuess($event)"></canvas>

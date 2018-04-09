@@ -3,11 +3,11 @@ body{
   margin: 0;
 }
 
-.wrapper {
+/*.wrapper {
   position: fixed;
   left: 10px;
   top: 8px;
-}
+}*/
 
 .colorMenu {
   border: 1px solid black;
