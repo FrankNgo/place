@@ -14,13 +14,9 @@ export class AppComponent implements OnInit {
   drawnPixels = [];
 
   ngOnInit() {
-    // var canvas = <HTMLCanvasElement> document.getElementById("grid");
-    // var ctx = canvas.getContext("2d");
-    // ctx.fillStyle = "black";
-    // console.log(this.drawnPixels);
-    // ctx.fillRect(((Math.ceil((100)/15)*15)-15),(((Math.ceil((100)/15)*15)-15)),15,15);
-  }
 
+  }
+//bla
   addSquare($event){
     // console.log($event);
     var canvas = <HTMLCanvasElement> document.getElementById("grid");

@@ -38,7 +38,7 @@ export class UserComponent implements OnInit{
 
   ngOnInit(): void {
     this.boxes = this.boxService.getBoxes();
-    console.log(this.boxes);
+    // console.log(this.boxes);
     this.route.data.subscribe(routeData => {
       let data = routeData['data'];
       if (data) {
@@ -97,5 +97,12 @@ export class UserComponent implements OnInit{
     this.color = colorset;
   }
 
+  drawSquares(color){
+    var canvas = <HTMLCanvasElement> document.getElementById("grid");
+    var ctx = canvas.getContext("2d");
+    ctx.fillStyle = color;
+    console.log(this.drawnPixels);
+    ctx.fillRect(((Math.ceil((100)/15)*15)-15),(((Math.ceil((100)/15)*15)-15)),15,15);
+  }
 
 }
