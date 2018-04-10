@@ -1,17 +1,26 @@
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../core/user.service';
 import { AuthService } from '../core/auth.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { FirebaseUserModel } from '../core/user.model';
+import { BoxService } from '../../board.service';
+import { Boxes } from '../../board/board.model';
+import { FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'page-user',
   templateUrl: 'user.component.html',
+  providers: [BoxService]
 })
 export class UserComponent implements OnInit{
 
+  boxes: FirebaseListObservable<any[]>;
   user: FirebaseUserModel = new FirebaseUserModel();
   profileForm: FormGroup;
 
@@ -20,12 +29,16 @@ export class UserComponent implements OnInit{
     public authService: AuthService,
     private route: ActivatedRoute,
     private location : Location,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
+    ,private boxService: BoxService
   ) {
 
   }
 
   ngOnInit(): void {
+    this.boxes = this.boxService.getBoxes();
+    console.log(this.boxes);
     this.route.data.subscribe(routeData => {
       let data = routeData['data'];
       if (data) {
@@ -83,4 +96,6 @@ export class UserComponent implements OnInit{
   setColor(colorset) {
     this.color = colorset;
   }
+
+
 }
