@@ -1,31 +1,46 @@
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../core/user.service';
 import { AuthService } from '../core/auth.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FirebaseUserModel } from '../core/user.model';
+// import { FirebaseListObservable } from 'angularfire2/database';
+import { Board } from './board.model';
+import { BoardService } from '../board.service';
+
+
 
 @Component({
   selector: 'page-user',
-  templateUrl: 'user.component.html',
+  templateUrl: 'board.component.html',
+  styleUrls: ['./board.component.css'],
+  providers: [UserService],
+  providers: [BoardService],
 })
-export class UserComponent implements OnInit{
+export class BoardComponent implements OnInit{
 
   user: FirebaseUserModel = new FirebaseUserModel();
   profileForm: FormGroup;
+
+  boxes: FirebaseListObservable<any[]>;
 
   constructor(
     public userService: UserService,
     public authService: AuthService,
     private route: ActivatedRoute,
     private location : Location,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    public boardService: BoardService
+    //this guy
   ) {
 
   }
 
   ngOnInit(): void {
+    this.boxes = this.boardService.getBoxes();
+
     this.route.data.subscribe(routeData => {
       let data = routeData['data'];
       if (data) {

@@ -6,15 +6,17 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { LoginComponent } from './login/login.component';
-import { UserComponent } from './user/user.component';
+import { BoardComponent } from './board/board.component';
 import { RegisterComponent } from './register/register.component';
-import { UserResolver } from './user/user.resolver';
+import { UserResolver } from './board/user.resolver';
 import { AuthGuard } from './core/auth.guard';
 import { AuthService } from './core/auth.service';
 import { UserService } from './core/user.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { masterFirebaseConfig } from './api-keys';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
 
 
 export const firebaseConfig = {
@@ -29,7 +31,7 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     LoginComponent,
-    UserComponent,
+    BoardComponent,
     RegisterComponent
   ],
   imports: [

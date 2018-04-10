@@ -1,0 +1,10 @@
+{ "boxes": [{
+  "x0y0" : {
+    "color" : "black"
+  },
+  "x15y0" : {
+    "color" : "red"
+  }
+    }
+  ]
+}
