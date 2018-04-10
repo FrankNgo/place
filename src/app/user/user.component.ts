@@ -82,8 +82,7 @@ export class UserComponent implements OnInit{
   drawnPixels = [];
 
   addSquare ($event, newBox: Boxes) {
-
-    console.log(newBox);
+    // console.log(newBox);
     var canvas = <HTMLCanvasElement> document.getElementById("grid");
     var ctx = canvas.getContext("2d");
     ctx.fillStyle = this.color;
@@ -92,12 +91,19 @@ export class UserComponent implements OnInit{
     var y = (Math.ceil(($event.offsetY)/15)*15)-15;
     ctx.fillRect(x,y,15,15);
     this.drawnPixels.push(newBox);
-    var newBox: Boxes = new Boxes(this.color);
+    var newBox: Boxes = new Boxes(this.color, (Math.ceil(($event.offsetX)/15)*15)-15, (Math.ceil(($event.offsetY)/15)*15)-15);
     this.boxService.addSquare(newBox)
-    // ctx.fillRect(450,270,15,15);
-    // ctx.fillRect(270,271,15,15);
   }
 
+  drawPixel (xInput, yInput) {
+    var canvas = <HTMLCanvasElement> document.getElementById("grid");
+    var ctx = canvas.getContext("2d");
+    ctx.fillStyle = this.color;
+    var colors = this.color;
+    var x = (Math.ceil((xInput)/15)*15)-15;
+    var y = (Math.ceil((yInput)/15)*15)-15;
+    ctx.fillRect(xInput,yInput,15,15);
+  }
 
   setColor(colorset) {
     this.color = colorset;
