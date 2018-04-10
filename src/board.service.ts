@@ -8,11 +8,15 @@ export class BoxService {
   boxes: FirebaseListObservable<any[]>;
 
   constructor(private database: AngularFireDatabase) {
-    this.boxes = database.list('boxes'); 
+    this.boxes = database.list('boxes');
   }
 
   getBoxes() {
     return this.boxes;
+  }
+
+  addSquare(newBox) {
+    this.boxes.push(newBox);
   }
 
   // addAlbum(newAlbum: Album) {

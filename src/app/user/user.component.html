@@ -1,3 +1,5 @@
+
+
 <div class="wrapper">
   <div class="colorMenu">
     <div (click)="setColor('white')" class="white"></div>
@@ -20,7 +22,7 @@
   </div>
 </div>
 
-<canvas id="grid" width="2470" height="1170" style="border:2px solid black" (click)="addSquare($event)"></canvas>
+<canvas id="grid" width="2470" height="1170" style="border:2px solid black" (click)="addSquare($event, Boxes)"></canvas>
 
 <div class="card" *ngFor="let box of boxes | async">
   {{box.color}}

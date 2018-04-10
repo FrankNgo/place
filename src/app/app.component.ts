@@ -14,7 +14,8 @@ export class AppComponent implements OnInit {
   drawnPixels = [];
 
   ngOnInit() {
-
+    var canvas = <HTMLCanvasElement> document.getElementById("grid");
+    console.log(canvas);
   }
 //bla
   addSquare($event){

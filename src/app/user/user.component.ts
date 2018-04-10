@@ -1,3 +1,4 @@
+import { Injectable } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
@@ -18,6 +19,7 @@ import { FirebaseListObservable } from 'angularfire2/database';
   templateUrl: 'user.component.html',
   providers: [BoxService]
 })
+@Injectable()
 export class UserComponent implements OnInit{
 
   boxes: FirebaseListObservable<any[]>;
@@ -79,9 +81,9 @@ export class UserComponent implements OnInit{
 
   drawnPixels = [];
 
+  addSquare ($event, newBox: Boxes) {
 
-  addSquare($event){
-    // console.log($event);
+    console.log(newBox);
     var canvas = <HTMLCanvasElement> document.getElementById("grid");
     var ctx = canvas.getContext("2d");
     ctx.fillStyle = this.color;
@@ -89,20 +91,16 @@ export class UserComponent implements OnInit{
     var x = (Math.ceil(($event.offsetX)/15)*15)-15;
     var y = (Math.ceil(($event.offsetY)/15)*15)-15;
     ctx.fillRect(x,y,15,15);
-    this.drawnPixels.push({x,y,colors});
-    console.log(this.drawnPixels);
+    this.drawnPixels.push(newBox);
+    var newBox: Boxes = new Boxes(this.color);
+    this.boxService.addSquare(newBox)
+    // ctx.fillRect(450,270,15,15);
+    // ctx.fillRect(270,271,15,15);
   }
+
 
   setColor(colorset) {
     this.color = colorset;
-  }
-
-  drawSquares(color){
-    var canvas = <HTMLCanvasElement> document.getElementById("grid");
-    var ctx = canvas.getContext("2d");
-    ctx.fillStyle = color;
-    console.log(this.drawnPixels);
-    ctx.fillRect(((Math.ceil((100)/15)*15)-15),(((Math.ceil((100)/15)*15)-15)),15,15);
   }
 
 }
