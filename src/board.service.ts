@@ -15,6 +15,7 @@ export class BoxService {
     return this.boxes;
   }
 
+
   addSquare(newBox) {
     this.boxes.push(newBox);
   }

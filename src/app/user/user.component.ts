@@ -13,7 +13,9 @@ import { FirebaseUserModel } from '../core/user.model';
 import { BoxService } from '../../board.service';
 import { Boxes } from '../../board/board.model';
 import { FirebaseListObservable } from 'angularfire2/database';
+
 import { AngularFireAuth } from 'angularfire2/auth';
+
 
 @Component({
   selector: 'page-user',
@@ -34,15 +36,16 @@ export class UserComponent implements OnInit{
     private route: ActivatedRoute,
     private location : Location,
     private fb: FormBuilder,
+
     private router: Router,
     private boxService: BoxService,
     public afAuth: AngularFireAuth
   ) {}
 
 
+
   ngOnInit(): void {
     this.boxes = this.boxService.getBoxes();
-    // console.log(this.boxes);
     this.route.data.subscribe(routeData => {
       let data = routeData['data'];
       if (data) {
@@ -120,7 +123,5 @@ export class UserComponent implements OnInit{
   setColor(colorset) {
     this.color = colorset;
   }
-
-
 
 }

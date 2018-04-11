@@ -2,14 +2,26 @@
 body{
   margin: 0;
 }
+.image{
+  width: 100%
+}
+
+.btn {
+  position: absolute;
+  left: -24px;
+}
+
 
 .wrapper {
+
   position: absolute;
   left: 10px;
+
   top: 8px;
 }
 
 .colorMenu {
+
 
   width: 15px;
 
@@ -24,6 +36,7 @@ body{
   width: 30px;
   height: 30px;
   margin-left: -10px;
+
   cursor: pointer;
 
 
@@ -45,53 +58,53 @@ body{
 .lightgrey {
   background-color: #E4E4E4;
 }
- .grey {
-   background-color: #888888;
- }
+.grey {
+ background-color: #888888;
+}
 
- .black {
-   background-color: #222222;
- }
+.black {
+ background-color: #222222;
+}
 
- .pink {
-   background-color: #FDA8D1;
- }
+.pink {
+ background-color: #FDA8D1;
+}
 
- .red {
-   background-color: #E30A17;
- }
+.red {
+ background-color: #E30A17;
+}
 
- .gold {
-   background-color: #E39424
- }
+.gold {
+ background-color: #E39424
+}
 
- .brown {
-   background-color: #9F6945
- }
+.brown {
+ background-color: #9F6945
+}
 
- .yellow {
-   background-color: #E5D82F
- }
+.yellow {
+ background-color: #E5D82F
+}
 
- .lightgreen {
-   background-color: #96DE4F
- }
+.lightgreen {
+ background-color: #96DE4F
+}
 
- .green {
-   background-color: #1DBC21
- }
- .lightblue {
-   background-color: #23D3DC
- }
- .blue {
-   background-color: #1484C5
- }
- .darkblue {
-   background-color: #0920E6
- }
- .lavender {
-   background-color: #CE72E2
- }
- .purple {
-   background-color: #800E7E
- }
+.green {
+ background-color: #1DBC21
+}
+.lightblue {
+ background-color: #23D3DC
+}
+.blue {
+ background-color: #1484C5
+}
+.darkblue {
+ background-color: #0920E6
+}
+.lavender {
+ background-color: #CE72E2
+}
+.purple {
+ background-color: #800E7E
+}
