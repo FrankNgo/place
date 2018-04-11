@@ -53,6 +53,8 @@ export class UserComponent implements OnInit{
     var canvas = <HTMLCanvasElement> document.getElementById("grid");
     var ctx = canvas.getContext("2d");
     ctx.fillStyle = "black";
+
+  //check if a user is logged in or not with console logs
     this.afAuth.authState.subscribe(res => {
       if (res && res.uid) {
         console.log('user is logged in');
