@@ -13,6 +13,7 @@ import { FirebaseUserModel } from '../core/user.model';
 import { BoxService } from '../../board.service';
 import { Boxes } from '../../board/board.model';
 import { FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'page-user',
@@ -33,11 +34,11 @@ export class UserComponent implements OnInit{
     private route: ActivatedRoute,
     private location : Location,
     private fb: FormBuilder,
-    private router: Router
-    ,private boxService: BoxService
-  ) {
+    private router: Router,
+    private boxService: BoxService,
+    public afAuth: AngularFireAuth
+  ) {}
 
-  }
 
   ngOnInit(): void {
     this.boxes = this.boxService.getBoxes();
@@ -52,6 +53,13 @@ export class UserComponent implements OnInit{
     var canvas = <HTMLCanvasElement> document.getElementById("grid");
     var ctx = canvas.getContext("2d");
     ctx.fillStyle = "black";
+    this.afAuth.authState.subscribe(res => {
+      if (res && res.uid) {
+        console.log('user is logged in');
+      } else {
+        console.log('user not logged in');
+      }
+    });
   }
 
   createForm(name) {
@@ -95,8 +103,6 @@ export class UserComponent implements OnInit{
     var newBox: Boxes = new Boxes(this.color, (Math.ceil(($event.offsetX)/15)*15)-15, (Math.ceil(($event.offsetY)/15)*15)-15);
     this.boxService.addSquare(newBox)
     // setTimeout(function(){$event.off}, 5000);
-
-    
 
     }
 
