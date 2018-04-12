@@ -1,3 +1,4 @@
+<!-- <a routerLink="replay">About</a> -->
 <div class="row">
   <div class="sidebar">
     <div class="wrapper">
@@ -117,7 +118,9 @@
       </div>
     </div>
   </div>
-  <button type="button" (click)="logout()" class="btn btn-link">Logout</button>
+  <button type="button" (click)="logout()" class="btn btn-link">Logout</button><br><br><br>
+
+
   <canvas id="grid" width="2405" height="1361" style="border:2px solid black" (click)="addSquare($event)"></canvas>
 
   <ng-container *ngFor="let box of boxes | async">
@@ -125,12 +128,6 @@
   </ng-container>
 
 
-  <canvas id="grid2" width="2405" height="1361" style="border:2px solid black"></canvas>
-
-
-  <ng-container *ngFor="let box of boxes | async">
-    {{drawPixels2(box.xCoord, box.yCoord, box.color)}}
-  </ng-container>
 
 </div>
 
