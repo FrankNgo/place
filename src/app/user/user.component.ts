@@ -47,6 +47,7 @@ export class UserComponent implements OnInit{
       if (data) {
         this.user = data;
         this.createForm(this.user.name);
+        // console.log("test"+this.user)
       }
     })
     var canvas = <HTMLCanvasElement> document.getElementById("grid");
@@ -83,7 +84,6 @@ export class UserComponent implements OnInit{
   drawnPixels = [];
 
   addSquare ($event, newBox: Boxes) {
-    // console.log(newBox);
 
     var canvas = <HTMLCanvasElement> document.getElementById("grid");
     var ctx = canvas.getContext("2d");
@@ -104,7 +104,6 @@ export class UserComponent implements OnInit{
     var x = (Math.ceil((xInput)/15)*15)-15;
     var y = (Math.ceil((yInput)/15)*15)-15;
     ctx.fillRect(xInput,yInput,15,  15);
-    
   }
 
   setColor(colorset) {

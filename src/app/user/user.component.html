@@ -120,9 +120,9 @@
   <button type="button" (click)="logout()" class="btn btn-link">Logout</button>
   <canvas id="grid" width="2405" height="1361" style="border:2px solid black" (click)="addSquare($event)"></canvas>
 
-
-    {{*ngFor="let box of boxes | async" drawPixels(box.xCoord, box.yCoord, box.color)}}
-
+  <ng-container *ngFor="let box of boxes | async">
+    {{drawPixels(box.xCoord, box.yCoord, box.color)}}
+  </ng-container>
 </div>
 
 <script>

@@ -1,14 +1,33 @@
 import { Injectable } from '@angular/core';
 import { Boxes } from './board/board.model';
-// import { ALBUMS } from './mock-album';
+import { UserService } from './app/core/user.service';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { Component, OnInit } from '@angular/core';
+import { FirebaseUserModel } from './app/core/user.model';
+import { ActivatedRoute } from '@angular/router';
 
+@Component({
+  providers: [BoxService,UserService]
+})
 @Injectable()
 export class BoxService {
   boxes: FirebaseListObservable<any[]>;
+  user: FirebaseUserModel = new FirebaseUserModel();
 
-  constructor(private database: AngularFireDatabase) {
+
+  constructor(private database: AngularFireDatabase,
+    public userService: UserService,
+    private route: ActivatedRoute) {
     this.boxes = database.list('boxes');
+
+    this.route.data.subscribe(routeData => {
+      let data = routeData['data'];
+      if (data) {
+        this.user = data;
+
+        // console.log("test"+this.user.name)
+      }
+    })
   }
 
   getBoxes() {
@@ -16,7 +35,16 @@ export class BoxService {
   }
 
   addSquare(newBox) {
+    var test = newBox;
+
+    console.log(test.color);
     this.boxes.push(newBox);
+
+  }
+
+  ngOnInit() {
+    // console.log(this.boxes);
+
   }
 
   // addAlbum(newAlbum: Album) {
