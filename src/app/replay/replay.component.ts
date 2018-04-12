@@ -91,7 +91,7 @@ export class ReplayComponent implements OnInit{
     ctx.fillStyle = color;
     var x = (Math.ceil((xInput)/15)*15)-15;
     var y = (Math.ceil((yInput)/15)*15)-15;
-    setInterval(function() { ctx.fillRect(xInput,yInput,15,  15 },8000);
+    // setInterval(function() { ctx.fillRect(xInput,yInput,15,  15 },8000);
     // setTimeout(()=>{ ctx.fillRect(xInput,yInput,15,  15) }, 1000)
   }
 
