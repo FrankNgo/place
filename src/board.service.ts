@@ -36,10 +36,9 @@ export class BoxService {
 
   addSquare(newBox) {
     var test = newBox;
-
-    console.log(test.color);
-    this.boxes.push(newBox);
-
+    test.userName = this.user.name;
+    this.boxes.push(test);
+    console.log(test.userName)
   }
 
   ngOnInit() {

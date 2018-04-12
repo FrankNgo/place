@@ -1,4 +1,4 @@
 export class Boxes {
-  constructor (public color: string, public xCoord: number, public yCoord: number) {
+  constructor (public color: string, public xCoord: number, public yCoord: number,public userName: string) {
   }
 }

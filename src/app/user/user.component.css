@@ -1,4 +1,8 @@
-
+#grid2 {
+  position: absolute;
+  top: 1420px;
+  left: 150px;
+}
 
 #grid{
   margin: 161px;
@@ -53,7 +57,7 @@ canvas#grid {
   padding: 0;
   position: absolute;
   left: 150px;
-  overflow: scroll  
+  overflow: scroll
 }
 
 h1{
