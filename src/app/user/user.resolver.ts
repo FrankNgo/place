@@ -18,12 +18,14 @@ export class UserResolver implements Resolve<FirebaseUserModel> {
         if(res.providerData[0].providerId == 'password'){
           user.image = 'http://dsi-vd.github.io/patternlab-vd/images/fpo_avatar.png';
           user.name = res.displayName;
+          user.id = res.id;
           user.provider = res.providerData[0].providerId;
           return resolve(user);
         }
         else{
           user.image = res.photoURL;
           user.name = res.displayName;
+          user.id = res.uid;          
           user.provider = res.providerData[0].providerId;
           return resolve(user);
         }

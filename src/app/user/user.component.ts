@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 import { FirebaseUserModel } from '../core/user.model';
 import { BoxService } from '../../board.service';
 import { Boxes } from '../../board/board.model';
+import { Users } from '../../board/board.model';
 import { FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
@@ -24,6 +25,7 @@ import { FirebaseListObservable } from 'angularfire2/database';
 export class UserComponent implements OnInit{
 
   boxes: FirebaseListObservable<any[]>;
+  users: FirebaseListObservable<any[]>;
   user: FirebaseUserModel = new FirebaseUserModel();
   profileForm: FormGroup;
 
@@ -41,6 +43,7 @@ export class UserComponent implements OnInit{
 
   ngOnInit(): void {
     this.boxes = this.boxService.getBoxes();
+    this.users = this.boxService.getUserIDs();
     // console.log(this.boxes);
     this.route.data.subscribe(routeData => {
       let data = routeData['data'];
@@ -107,14 +110,6 @@ export class UserComponent implements OnInit{
     ctx.fillRect(xInput,yInput,15,  15);
   }
 
-  // drawPixels2 (xInput, yInput, color) {
-  //   var canvas = <HTMLCanvasElement> document.getElementById("grid2");
-  //   var ctx = canvas.getContext("2d");
-  //   ctx.fillStyle = color;
-  //   var x = (Math.ceil((xInput)/15)*15)-15;
-  //   var y = (Math.ceil((yInput)/15)*15)-15;
-  //   setTimeout(()=>{ ctx.fillRect(xInput,yInput,15,  15) }, 1)
-  // }
 
   setColor(colorset) {
     this.color = colorset;
